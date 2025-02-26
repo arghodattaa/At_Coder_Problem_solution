@@ -1,0 +1,22 @@
+#include<iostream>
+using namespace std;
+#include<bits/stdc++.h>
+int main(){
+   int n ; cin>>n ;
+   vector< int > staring(n);
+   vector< int > bib(n);
+   map< int , int > mp;
+
+   for( int i = 0; i<n ; i++){
+       cin>>staring[i];
+   }
+      for( int i = 0; i<n ; i++){
+       cin>>bib[i];
+       mp[bib[i] ] = staring[i];
+   }
+   auto it = mp.begin();
+   while( it != mp.end()){
+       cout<< bib[it->second - 1]<<" ";
+       it++;
+   }
+}

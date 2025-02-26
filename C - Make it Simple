@@ -1,0 +1,39 @@
+#include<iostream>
+using namespace std;
+#include<map>
+#include<vector>
+#include<algorithm>
+int main(){
+   int n , m ;
+   cin>>n >>m;
+   multimap< int , int > grap;
+   vector< int > a(2);
+   int delet = 0;
+   while( m--){
+       cin>>a[0]>>a[1];
+       if( a[0]==a[1]) {
+        delet++;
+        continue;
+       }
+       sort( a.begin(), a.end());
+       auto it = grap.lower_bound(a[0]);
+       auto its = grap.upper_bound(a[0]);
+       bool chak = true;
+       while( it != grap.end() && it != its ){
+           if( it->second == a[1]){
+
+                              chak = false;
+                              break;
+           }
+           it++;
+       }
+       if( chak ){
+             grap.insert(pair<int , int >(a[0], a[1]) );
+
+       }
+       else
+          delet ++;
+
+   }
+   cout<<delet;
+}

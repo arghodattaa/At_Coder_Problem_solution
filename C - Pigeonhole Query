@@ -1,0 +1,28 @@
+#include<iostream>
+using namespace std;
+#include<vector>
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+
+    int n , q;
+    cin  >> n >> q;
+   vector < int > vc( n+1, 1);
+   int position[n];
+   for( int i = 1; i<=n ; i++)
+                   position[i] = i;
+    int pigeons_on_nest = 0;
+    int nn;
+    int a , b ;
+    while( q--){
+            cin>>nn ;
+
+        if( nn == 1 ){
+            cin>>a >>b;
+           if( --vc[ position[a] ] == 1) pigeons_on_nest--;
+           position[a] = b;
+           if( ++vc[ position[a] ] ==2 ) pigeons_on_nest ++;
+         }else
+        cout<< pigeons_on_nest<<"\n";
+    }
+}

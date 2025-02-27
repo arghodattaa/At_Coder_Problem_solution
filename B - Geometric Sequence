@@ -1,0 +1,26 @@
+#include<iostream>
+using namespace std;
+#include<cmath>
+int main(){
+   int n;
+   cin>>n;
+   long long int arr[n];
+   for( int i = 0; i<n ; i++)
+                     cin>>arr[i];
+
+
+
+   bool chak = true;
+
+   for( int i = 0 ; i< n-2; i++){
+
+     if( arr[i]*arr[i+2] != arr[i+1]*arr[i+1]){
+         chak = false ;
+         break;
+     }
+
+   }
+   if( chak )
+             cout <<"Yes";
+   else cout<<"No";
+}
